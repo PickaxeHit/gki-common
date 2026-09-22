@@ -4,6 +4,13 @@ PATCHLEVEL = 6
 SUBLEVEL = 82
 EXTRAVERSION =
 NAME = Pinguïn Aangedreven
+# 【TB378 伪装】AOSP/ROM 构建会导出 KBUILD_BUILD_USER=nobody / HOST=android-build / 空时间戳与版本号，这里无条件覆盖成原厂内核的编译信息（makefile 赋值优先于环境变量）。
+KBUILD_BUILD_USER := kleaf
+KBUILD_BUILD_HOST := build-host
+KBUILD_BUILD_TIMESTAMP := Mon Jun 30 15:06:58 UTC 2025
+KBUILD_BUILD_VERSION := 1
+export KBUILD_BUILD_USER KBUILD_BUILD_HOST KBUILD_BUILD_TIMESTAMP KBUILD_BUILD_VERSION
+
 
 # *DOCUMENTATION*
 # To see a list of typical targets execute "make help"
